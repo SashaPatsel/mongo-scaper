@@ -29,16 +29,19 @@ request("https://www.theringer.com/", function(error, response, html) {
   var results = [];
 
   // Cheerio
-  $("h2.c-entry-box--compact__title").each(function(i, element) {
+  
+  // h2.c-entry-box--compact__title
+  $("div.c-entry-box--compact").each(function(i, element) {
 
 
-    var articles = $(element).text()
+    var articles = $(element).find("h2.c-entry-box--compact__title").text()
     var link = $(element).children("a").attr("href")
-
+    var img = $(element).find("img").attr("src")
     // Push the image's URL (saved to the imgLink var) into the results array
     results.push({ 
       articles: articles,
-      link: link 
+      link: link,
+      img: img 
      });
   });
 
