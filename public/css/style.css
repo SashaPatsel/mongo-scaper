@@ -8,13 +8,16 @@
 }
 
 #scraper {
-  padding: 10px;
-  background-color: rgb(106,194,135);
-  color: white; 
   float: right;
   position: relative;
   bottom: 30px;
   right: 100px;
+}
+
+.ringer-button {
+  padding: 10px;
+  background-color: rgb(106,194,135);
+  color: white; 
 }
 
 #ringer-nav {

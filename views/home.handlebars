@@ -6,7 +6,10 @@
             </button>
             <a class="navbar-brand" href="https://www.theringer.com/" target="_blank"><img class="nav-logo" src="https://thrones.theringer.com/img/logo-square.png"></a>
             <form action="/scrape">
-                <input id="scraper" type="submit" value="Refresh Articles" />
+                <input class="ringer-button" id="scraper" type="submit" value="Refresh Articles" />
+            </form>
+            <form action="/saved">
+                <input class="ringer-button" id="saved" type="submit" value="View Saved" />
             </form>
         </div>
         <ul class="nav navbar-nav navbar-right">
@@ -23,16 +26,14 @@
 </nav>
 <div class="container">
     <div class="articles-here">
-        {{!--
-        <h2>results{{results}}</h2> --}} {{#each featured}}
-        <h4>{{fTitle}}</h4> {{!--
-        <p>link:{{link}}</p> --}}
+        {{#each featured}}
+        <h4>{{fTitle}}</h4>
         <a href="{{fLink}}" target="_blank">
-<img  class="art-img" src="{{img}}">
-</a> {{/each}} 
-{{!-- {{#each secondary}}
-        <p>articles:{{articles}}</p>
-        <p>link:{{link}}</p>
-        {{/each}} --}}
+            <img  class="art-img" src="{{img}}">
+        </a>
+        <form>
+            <input class="ringer-button saver" data-id={{_id}} type="submit" value="Save!" />
+        </form>
+        {{/each}}
     </div>
 </div>

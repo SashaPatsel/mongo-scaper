@@ -7,6 +7,7 @@ module.exports = function(app) {
 
     var featured = [];
     var secondary = []
+
     app.get("/scrape", function(req, res) {
 
      request("https://www.theringer.com/", function(error, response, html) {
@@ -55,6 +56,18 @@ module.exports = function(app) {
      });
 
  });
+
+    app.post("/saved/:id", function(req, res) {
+      db.Article.findOneAndUpdate({_id: req.params.id}, { saved: true});
+// {note: dbNote._id },
+    }) 
+
+    app.get("/saved", function(req, res) {
+      db.Article.find({saved: true}).then(function(dbArticle) {
+        console.log(dbArticle)
+        res.render("saved", dbArticle)
+      })
+    })
 
 
 };
