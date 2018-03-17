@@ -19,6 +19,7 @@ mongoose.Promise = Promise;
 mongoose.connect("mongodb://localhost/ringerSim", {
 });
 
+var db = require("./models");
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
@@ -26,9 +27,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 // Hook mongojs configuration to the db variable
 // Require all models
-var db = require("./models");
 
-// require("./routes/html-routes.js")(app);
+require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 

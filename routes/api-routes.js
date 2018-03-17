@@ -1,58 +1,60 @@
 var request = require("request");
 var cheerio = require("cheerio");
-
+var db = require("../models");
 
 
 module.exports = function(app) {
 
-  var featured = [];
-  var secondary = []
-  app.get("/scrape", function(req, res) {
-    
-    request("https://www.theringer.com/", function(error, response, html) {
+    var featured = [];
+    var secondary = []
+    app.get("/scrape", function(req, res) {
 
- 
-  // Cheerio
-  var $ = cheerio.load(html);
-  
-  // h2.c-entry-box--compact__title
-  $("div.c-entry-box--compact").each(function(i, element) {
+     request("https://www.theringer.com/", function(error, response, html) {
 
 
-    var articles = $(element).find("h2.c-entry-box--compact__title").text()
-    var link = $(element).children("a").attr("href")
-    var img = $(element).find("img").attr("src")
-    // Push the image's URL (saved to the imgLink var) into the featured array\
-    
-    if (featured.length < 5) {
-        featured.push({ 
-          articles: articles,
-          link: link,
-          img: img 
+         // Cheerio
+         var $ = cheerio.load(html);
+
+         // h2.c-entry-box--compact__title
+         $("div.c-entry-box--compact").each(function(i, element) {
+
+
+             var title = $(element).find("h2.c-entry-box--compact__title").text()
+             var link = $(element).children("a").attr("href")
+             var img = $(element).find("img").attr("src")
+
+             if (featured.length < 5) {
+                 featured.push({
+                     fTitle: title,
+                     fLink: link,
+                     img: img
+                 });
+             } 
+             // else {
+             //     featured.push({
+             //         sTitle: title,
+             //         sLink: link
+             //     });
+             // }
+
+             db.Article.create(featured)
+                 // .then(function(dbArticle) {
+                 //     console.log(dbArticle);
+                 // })
+                 .catch(function(err) {
+                     return res.json(err);
+                 });
          });
-    } else {
-        secondary.push({ 
-          articles: articles,
-          link: link
-         });
-    }
-          db.Article.create(featured)
-        .then(function(dbArticle) {
-          console.log(dbArticle);
-        })
-        .catch(function(err) {
-          return res.json(err);
-        });
-  });
 
-  // After looping through each element found, log the featured to the console
-  // console.log(featured);
-    // console.log(featured, "============");
-       res.render("home", {featured:featured})
-       // , {secondary:secondary}
-});
+         // After looping through each element found, log the featured to the console
+         // console.log(featured);
+         // console.log(featured, "============");
+         console.log(featured)
+         res.render("home", { featured: featured })
+         // res.render("home", { featured: featured  , {secondary:secondary}})
+     });
 
-  });
+ });
 
 
 };
