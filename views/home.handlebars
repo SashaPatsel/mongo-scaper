@@ -27,8 +27,15 @@
 </nav>
 
 <div class="articles-here">
-    {{#each results }}
-<h1>{{articles}}</h1>
+    {{!-- <h2>results{{results}}</h2> --}}
+    {{#each featured}}  
+<p>articles:{{articles}}</p>
+<p>link:{{link}}</p>
+<img  class="art-img" src="{{img}}">
+{{/each}}
 
+    {{#each secondary}}  
+<p>articles:{{articles}}</p>
+<p>link:{{link}}</p>
 {{/each}}
 </div>
