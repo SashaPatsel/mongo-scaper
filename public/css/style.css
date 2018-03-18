@@ -30,3 +30,18 @@
 #ringer-nav {
   background-color: black;
 }
+
+.comm-div {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  width: 10%;
+  height: auto;
+}
+
+.comment-form {
+}
+
+.hide {
+  display: none;
+}

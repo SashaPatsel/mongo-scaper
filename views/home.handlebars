@@ -29,6 +29,13 @@
         <input type='input' class='comment-form'>
         <input type='submit' class='comment-submit' value='submit'>
     </form> --}}
+     <div class="comm-div hide comment-submit">
+         <form class="chicken">
+            <input type='input' class='comment-form'><input type='submit' class=' ringer-button' value='submit'>
+         </form>
+     </div>
+
+  <div class="col-md-6">  
     <div class="articles-here">
         {{#each articles}}
         <h4>{{fTitle}}</h4>
@@ -40,7 +47,8 @@
             <input type="submit" class="ringer-button saver" data-id="{{_id}}" value="Save!" />
              <input type="button" class="ringer-button comment" data-id="{{_id}}" value="Comment" />
         </form>
-    <div class="comm-div" data-id="{{_id}}"></div>
+   
         {{/each}}
     </div>
+  </div>   
 </div>

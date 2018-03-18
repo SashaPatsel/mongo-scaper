@@ -1,7 +1,7 @@
 // Dependencies
 var express = require("express");
 var mongojs = require("mongojs");
-
+var bodyParser = require("body-parser");
 // Require request and cheerio. This makes the scraping possible
 var request = require("request");
 var cheerio = require("cheerio");
@@ -9,11 +9,10 @@ var cheerio = require("cheerio");
 // Initialize Express
 var app = express();
 
-// Database configuration
-
 
 app.use(express.static("public"));
-// var db = require("./models");
+app.use(bodyParser.urlencoded({ extended: true }));
+
 var mongoose = require("mongoose");
 mongoose.Promise = Promise;
 mongoose.connect("mongodb://localhost/ringerSim", {
