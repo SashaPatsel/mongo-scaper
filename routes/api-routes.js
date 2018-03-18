@@ -65,12 +65,20 @@ module.exports = function(app) {
             });
     })
 
+
     app.get("/saved", function(req, res) {
         db.Article.find({ saved: true })
             .then(function(dbArticle) {
                 console.log(dbArticle)
                 res.render("saved", {articles: dbArticle})
             })
+    })
+        app.post("/unsaved/:id", function(req, res) {
+        db.Article.findOneAndUpdate({ _id: req.params.id }, { saved: false })
+            .then(function(dbSaved) {
+                // {note: dbNote._id },
+                console.log("======================", dbSaved)
+            });
     })
 
 

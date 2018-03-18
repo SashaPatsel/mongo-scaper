@@ -18,3 +18,15 @@ $(document).on("click", ".saver", function() {
     console.log(data)
   })
 })
+
+$(document).on("click", ".unsaver", function() {
+  
+  var thisId = $(this).data("id");
+
+  $.ajax({
+    method: "POST",
+    url:"/unsaved/" + thisId,
+  }).then(function(data) {
+    console.log(data)
+  })
+})
