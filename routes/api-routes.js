@@ -34,16 +34,28 @@ module.exports = function(app) {
                         featured: true
                     });
                 // }
+                function storeArticles() {
+                  db.Article.create(articles)
+                    try {
+                    throw console.log("try")
+                    }
+                    catch(err) {
+                    console.log(err)
+                    }
+                    finally {
+                    console.log("chicken")
+                    }
+                }
+                // .catch(function(err) {
+                //         return res.json(err);
+                //     }).finally(function(){
+                //         // res.render("error")
+                //         console.log("chicken")
 
-                db.Article.create(articles)
-                    // .then(function() {
 
-                    // })
-                    .catch(function(err) {
-                        return res.json(err);
-                    });
+                //     });
             });
-            console.log(articles)
+            // console.log(articles)
             res.render("home", { articles: articles })
 
         });

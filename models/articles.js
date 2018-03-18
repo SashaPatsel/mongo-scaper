@@ -10,6 +10,7 @@ var ArticleSchema = new Schema({
   fTitle: {
     type: String,
     required: true,
+    unique: true
   },
   subHead: {
     type: String,
