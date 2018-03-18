@@ -9,7 +9,11 @@ var ArticleSchema = new Schema({
   // `title` is required and of type String
   fTitle: {
     type: String,
-    required: false
+    required: true,
+  },
+  subHead: {
+    type: String,
+    required: true
   },
   // `link` is required and of type String
   fLink: {
@@ -21,6 +25,10 @@ var ArticleSchema = new Schema({
     required: false
   },
   saved: {
+    type: Boolean,
+    default: false
+  },
+  feature: {
     type: Boolean,
     default: false
   },

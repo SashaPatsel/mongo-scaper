@@ -4,7 +4,7 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             </button>
-            <a class="navbar-brand" href="https://www.theringer.com/" target="_blank"><img class="nav-logo" src="https://thrones.theringer.com/img/logo-square.png"></a>
+            <a class="navbar-brand" href="/"><img class="nav-logo" src="https://thrones.theringer.com/img/logo-square.png"></a>
             <form action="/scrape">
                 <input class="ringer-button" id="scraper" type="submit" value="Refresh Articles" />
             </form>
@@ -26,13 +26,15 @@
 </nav>
 <div class="container">
     <div class="articles-here">
-        {{#each featured}}
+        {{#each articles}}
         <h4>{{fTitle}}</h4>
         <a href="{{fLink}}" target="_blank">
             <img  class="art-img" src="{{img}}">
         </a>
+        <p data-id="{{_id}}">{{subHead}}</p>
+        <p>{{_id}}</p>
         <form>
-            <input class="ringer-button saver" data-id={{_id}} type="submit" value="Save!" />
+            <input type="submit" class="ringer-button saver"  value="Save!" />
         </form>
         {{/each}}
     </div>

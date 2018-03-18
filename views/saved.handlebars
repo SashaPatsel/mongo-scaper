@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default" id="ringer-nav">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            </button>
+            <a class="navbar-brand" href="/"><img class="nav-logo" src="https://thrones.theringer.com/img/logo-square.png"></a>
+            <form action="/scrape">
+                <input class="ringer-button" id="scraper" type="submit" value="Refresh Articles" />
+            </form>
+            <form action="/saved">
+                <input class="ringer-button" id="saved" type="submit" value="View Saved" />
+            </form>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/logout">Sign out</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>

@@ -9,11 +9,11 @@ $(document).on("click", "#scraper", function() {
 
 $(document).on("click", ".saver", function() {
   
-  var thisId = $(this).attr("data-id");
+  var thisId = $(this).data("id");
 
   $.ajax({
     method: "POST",
-    url:"/saved/" + thisId
+    url:"/saved/" + thisId,
   }).then(function(data) {
     console.log(data)
   })
