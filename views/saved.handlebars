@@ -24,3 +24,16 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
+
+{{#each articles}}
+{{#if saved}}
+ <h4>{{fTitle}}</h4>
+        <a href="{{fLink}}" target="_blank">
+            <img  class="art-img" src="{{img}}">
+        </a>
+        <p>{{subHead}}</p>
+        <form>
+            <input type="submit" class="ringer-button saver" data-id="{{_id}}" value="Save!" />
+        </form>
+{{/if}}
+{{/each}}

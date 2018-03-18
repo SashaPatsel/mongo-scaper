@@ -25,7 +25,7 @@ module.exports = function(app) {
                 var img = $(element).find("img").attr("src")
                 var subHead = $(element).find("p.p-dek").text()
 
-                if (articles.length < 5) {
+                // if (articles.length < 5) {
                     articles.push({
                         fTitle: title,
                         subHead: subHead,
@@ -33,7 +33,7 @@ module.exports = function(app) {
                         img: img,
                         featured: true
                     });
-                }
+                // }
 
                 db.Article.create(articles)
                     // .then(function() {
@@ -69,7 +69,7 @@ module.exports = function(app) {
         db.Article.find({ saved: true })
             .then(function(dbArticle) {
                 console.log(dbArticle)
-                res.render("saved", dbArticle)
+                res.render("saved", {articles: dbArticle})
             })
     })
 

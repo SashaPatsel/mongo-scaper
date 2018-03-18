@@ -31,10 +31,9 @@
         <a href="{{fLink}}" target="_blank">
             <img  class="art-img" src="{{img}}">
         </a>
-        <p data-id="{{_id}}">{{subHead}}</p>
-        <p>{{_id}}</p>
+        <p>{{subHead}}</p>
         <form>
-            <input type="submit" class="ringer-button saver"  value="Save!" />
+            <input type="submit" class="ringer-button saver" data-id="{{_id}}" value="Save!" />
         </form>
         {{/each}}
     </div>
