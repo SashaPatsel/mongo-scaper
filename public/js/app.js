@@ -34,14 +34,11 @@ $(document).on("click", ".unsaver", function() {
 $(document).on("click", ".comment", function() {
 
   var thisId = $(this).data("id");
-// console.log("append div", $(".comm-div").data())
-// console.log("button", $(this).data())
-// if ($(".comm-div").data() == $(this).data()) {
-  // $(".comm-div").append("<form><input type='input' class='comment-form'><input type='submit' class='comment-submit' value='submit'></form>")
+
   $(".comm-div").removeClass("hide")
   console.log($(this).data().id)
   $(".comment-submit").attr("id",  $(this).data().id)
-// }
+
 
 })
 
@@ -77,10 +74,10 @@ $(document).on("click", ".view-comments", function() {
   })
     // With that done, add the note information to the page
     .then(function(data) {
-      console.log(data.comments.comment)
-      console.log(data.comments._id)
+
       for (var i = 0; i < data.comments.comment.length; i ++) {
-       
+        //This is probably the comment's id, not the article's
+        console.log(data)
           if (thisId == data.comments._id) {
             $(".comment-sec").text(data.comments.comment[i].text)
           }

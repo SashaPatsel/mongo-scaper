@@ -32,7 +32,7 @@ app.get("/scrape", function(req, res) {
               if (img.startsWith("data")) {
                 img = "https://dfkfj8j276wwv.cloudfront.net/images/41/ec/3a/44/41ec3a44-37f8-4378-9cb6-8e2027563858/d31d6c3628a592d9504336c9a9c8897fd64f24bead2d50445c23991f5e708368f9404a50c21db8b99e261078adb6e624cbfed6f12532fde267941984ffb7f090.jpeg"
               }
-              
+
             articles.push({
                 fTitle: title,
                 subHead: subHead,
@@ -45,6 +45,7 @@ app.get("/scrape", function(req, res) {
 
             function storeArticles() {
                 db.Article.create(articles)
+                //Please tell me there is an alternative to this :). (tried to render an error page on the catch but it didn't work)
                 try {
                     throw console.log("try")
                 } catch (err) {
@@ -105,7 +106,7 @@ app.post("/comments/:id", function(req, res) {
     db.Comment.create(req.body)
         .then(function(dbComment) {
 
-        return db.Article.findOneAndUpdate({ _id: req.params.id }, { comment: dbComment._id }, { new: true });
+        return db.Article.findOneAndUpdate({ _id: req.params.id }, { $push: { comment: dbComment._id } }, { new: true });
         })
         .then(function(dbComment) {
             res.json(dbComment);
