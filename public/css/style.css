@@ -1,5 +1,7 @@
 p {
+  margin-left: 25px;
   color: #7d7d7d;
+  line-height: 2;
 }
 a {
   color: black;
@@ -10,22 +12,31 @@ a:hover {
   text-decoration: none;
 }
 
+h3 {
+  color: white;
+}
+
 .nav-logo {
   width: 20%;
 }
 
 .articles-here {
-  margin-bottom: 120px;
+  margin-bottom: 100px;
+  border-radius: 4px; 
+  background: black;
+  padding: 10px;
+  line-height: 1.5;
 }
 
 .art-img {
   width: 200px;
   height: 200px;
+  margin-bottom: 10px;
   float: left;
 }
 .art-forms {
   margin-top: 40px;
-  clear: both;
+  clear: left;
 }
 
 #scraper {
@@ -56,13 +67,25 @@ a:hover {
   position: fixed;
   top: 50%;
   right: 10px;
-  width: 10%;
-  height: auto;
+  width: 20%;
 }
 
 .comment-form {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    margin-bottom: 10px;
 }
 
 .hide {
   display: none;
+}
+
+
+@media screen and (max-width: 1070px) {
+    .comm-div {
+      position: relative;
+    }
 }
