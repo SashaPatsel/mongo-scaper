@@ -25,30 +25,28 @@
     <!-- /.container-fluid -->
 </nav>
 <div class="container">
-{{!--     <form>
-        <input type='input' class='comment-form'>
-        <input type='submit' class='comment-submit' value='submit'>
-    </form> --}}
-     <div class="comm-div hide comment-submit">
-         <form class="chicken">
+
+     <div class="comm-div hide">
+         <form class="comment-submit">
             <input type='input' class='comment-form'><input type='submit' class=' ringer-button' value='submit'>
          </form>
      </div>
 
   <div class="col-md-6">  
-    <div class="articles-here">
         {{#each articles}}
-        <h4>{{fTitle}}</h4>
+    <div class="articles-here">
         <a href="{{fLink}}" target="_blank">
+        <h4>{{fTitle}}</h4>
             <img  class="art-img" src="{{img}}">
         </a>
         <p>{{subHead}}</p>
-        <form>
+
+        <form class="art-forms">
             <input type="submit" class="ringer-button saver" data-id="{{_id}}" value="Save!" />
              <input type="button" class="ringer-button comment" data-id="{{_id}}" value="Comment" />
         </form>
-   
-        {{/each}}
+
     </div>
+        {{/each}}
   </div>   
 </div>

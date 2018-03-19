@@ -8,7 +8,7 @@ $(document).on("click", "#scraper", function() {
 })
 
 $(document).on("click", ".saver", function() {
-  
+  event.preventDefault()
   var thisId = $(this).data("id");
 
   $.ajax({
@@ -20,7 +20,7 @@ $(document).on("click", ".saver", function() {
 })
 
 $(document).on("click", ".unsaver", function() {
-  
+
   var thisId = $(this).data("id");
 
   $.ajax({
@@ -53,8 +53,9 @@ event.preventDefault()
   $(".comm-div").addClass("hide")
 
      storeComment(thisId ,{
-         comment: $(".comment-form").val().trim()
+         text: $(".comment-form").val().trim()
      });
+     $(".comment-form").val("")
 })
 
  function storeComment(id, comment) {
@@ -72,11 +73,20 @@ $(document).on("click", ".view-comments", function() {
   // Now make an ajax call for the Article
   $.ajax({
     method: "GET",
-    url: "/comment/" + thisId
+    url: "/comments/" + thisId
   })
     // With that done, add the note information to the page
     .then(function(data) {
-      console.log(data);
+      console.log(data.comments.comment)
+      console.log(data.comments._id)
+      for (var i = 0; i < data.comments.comment.length; i ++) {
+       
+          if (thisId == data.comments._id) {
+            $(".comment-sec").text(data.comments.comment[i].text)
+          }
+      }
+
+      // console.log(data.comment.text);
       
     });
 });

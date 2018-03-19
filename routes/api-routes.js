@@ -100,13 +100,10 @@ app.post("/comments/:id", function(req, res) {
 
     db.Comment.create(req.body)
         .then(function(dbComment) {
-          console.log(req.body)
-          console.log("106", dbComment)
+
         return db.Article.findOneAndUpdate({ _id: req.params.id }, { comment: dbComment._id }, { new: true });
         })
         .then(function(dbComment) {
-            // If the User was updated successfully, send it back to the client
-            console.log(dbComment)
             res.json(dbComment);
         })
         .catch(function(err) {
@@ -124,7 +121,8 @@ app.get("/comments/:id", function(req, res) {
   .findOne({ _id: req.params.id})
   .populate("comment")
   .then(function(dbArticle) {
-    res.json(dbArticle);
+    console.log("127",{comments: dbArticle});
+    res.send({comments: dbArticle})
   })
   .catch(function(err) {
     res.json(err)

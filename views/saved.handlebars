@@ -24,12 +24,23 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
+<div class="container">
 
+     <div class="comm-div hide">
+         <form class="comment-submit">
+            <input type='input' class='comment-form'><input type='submit' class=' ringer-button' value='submit'>
+         </form>
+     </div>
+
+  <div class="col-md-6">  
+        
+    
 {{#each articles}}
+    <div class="articles-here" data-id="{{_id}}">
 {{#if saved}}
  <h4>{{fTitle}}</h4>
         <a href="{{fLink}}" target="_blank">
-            <img  class="art-img" src="{{img}}">
+            <img class="art-img" src="{{img}}">
         </a>
         <p>{{subHead}}</p>
         <form>
@@ -37,5 +48,9 @@
             <input type="button" class="ringer-button comment" data-id="{{_id}}" value="Comment" />
             <input type="button" class="ringer-button view-comments" data-id="{{_id}}" value="View Comments" />
         </form>
+        <p class="comment-sec"></p>
 {{/if}}
+</div>
 {{/each}}
+</div>
+</div>
