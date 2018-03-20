@@ -45,6 +45,6 @@ require("./routes/api-routes.js")(app);
 
 // Listen on port 1993
 app.listen(PORT, function() {
-  console.log("App running on port 1993!");
+  console.log("App running on port" + PORT + "!");
 });
 
