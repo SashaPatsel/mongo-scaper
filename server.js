@@ -9,6 +9,7 @@ var cheerio = require("cheerio");
 // Initialize Express
 var app = express();
 
+var PORT = process.env.PORT || 1993
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -43,7 +44,7 @@ require("./routes/api-routes.js")(app);
 
 
 // Listen on port 1993
-app.listen(1993, function() {
+app.listen(PORT, function() {
   console.log("App running on port 1993!");
 });
 
