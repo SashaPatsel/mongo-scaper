@@ -17,16 +17,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var mongoose = require("mongoose");
 mongoose.Promise = Promise;
 
-// if (process.env.MONGODB_URI) {
-//   mongoose.connect(process.env.MONGODB_URI);
-// } 
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} 
 
-// else {
-//   mongoose.connect("mongodb://localhost/ringerSim", {
-//   });
-// }
+else {
+  mongoose.connect("mongodb://localhost/ringerSim", {
+  });
+}
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ringerSim";
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ringerSim";
 
 var db = require("./models");
 // Set Handlebars.
@@ -45,6 +45,6 @@ require("./routes/api-routes.js")(app);
 
 // Listen on port 1993
 app.listen(PORT, function() {
-  console.log("App running on port" + PORT + "!");
+  console.log("App running on port " + PORT + "!");
 });
 
