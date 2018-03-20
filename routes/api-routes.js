@@ -28,7 +28,7 @@ app.get("/scrape", function(req, res) {
             var subHead = $(element).find("p.p-dek").text()
 
             //add category heading
-            // // if (articles.length < 5) {
+
               if (img.startsWith("data")) {
                 img = "https://dfkfj8j276wwv.cloudfront.net/images/41/ec/3a/44/41ec3a44-37f8-4378-9cb6-8e2027563858/d31d6c3628a592d9504336c9a9c8897fd64f24bead2d50445c23991f5e708368f9404a50c21db8b99e261078adb6e624cbfed6f12532fde267941984ffb7f090.jpeg"
               }
@@ -40,7 +40,6 @@ app.get("/scrape", function(req, res) {
                 img: img,
                 featured: true
             });
-            // }
             storeArticles()
 
             function storeArticles() {

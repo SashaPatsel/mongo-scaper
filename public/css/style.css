@@ -103,6 +103,20 @@ h3 {
   margin-left: 21px;
 }
 
+.articles-here-saved {
+  margin-bottom: 100px;
+  border-radius: 4px; 
+  background: black;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 80px;
+  line-height: 1.5;
+}
+
+.fix-save-img {
+  margin-right: 1em;
+}
+
 @media screen and (max-width: 1070px) {
     .comm-div {
       position: relative;

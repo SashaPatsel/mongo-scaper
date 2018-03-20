@@ -29,6 +29,38 @@
 <div class="container">
 
      <div class="comm-div hide">
+     </div>
+
+  <div class="col-md-12 carpet">  
+        {{#each articles}}
+    <div class="articles-here-saved">
+        {{#if saved}}
+        <a href="{{fLink}}" target="_blank">
+        <h3>{{fTitle}}</h3>
+            <img  class="art-img fix-save-img" src="{{img}}">
+        </a>
+        <div class="p-contain">
+        <p>{{subHead}}</p>
+        </div>
+
+        <form>
+            <input type="submit" class="ringer-button unsaver" data-id="{{_id}}" value="Unsave"/>
+            <input type="button" class="ringer-button comment" data-id="{{_id}}" value="Comment" />
+            <input type="button" class="ringer-button view-comments" data-id="{{_id}}" value="View Comments" />
+        </form>
+    <hr>
+         <div class="comment-sec"></div>
+    {{/if}}
+    </div>
+        {{/each}}
+  </div>   
+</div>
+
+
+
+{{!-- <div class="container">
+
+     <div class="comm-div hide">
          <form class="comment-submit">
             <input type='input' class='comment-form'><input type='submit' class=' ringer-button' value='submit'>
          </form>
@@ -55,4 +87,4 @@
 </div>
 {{/each}}
 </div>
-</div>
+</div> --}}
