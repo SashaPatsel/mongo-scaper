@@ -134,4 +134,21 @@ app.get("/comments/:id", function(req, res) {
   })
 
 });
+
+app.post("/deletecomments/:id", function(req, res) {
+
+    db.Comment.remove({_id: req.params.id})
+        .then(function(dbComment) {
+          console.log("delete id", dbComment)
+        // return db.Article.findOneAndUpdate({ _id: req.params.id }, { $push: { comment: dbComment._id } }, { new: true });
+        })
+        // .then(function(dbComment) {
+        //     res.json(dbComment);
+        // })
+        // .catch(function(err) {
+        //     // If an error occurs, send it back to the client
+        //     res.json(err);
+        // });
+
+})
 };

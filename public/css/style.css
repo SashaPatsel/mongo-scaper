@@ -98,6 +98,10 @@ h3 {
   padding: 15px;
 }
 
+.glyphicon {
+  color: red;
+  margin-left: 21px;
+}
 
 @media screen and (max-width: 1070px) {
     .comm-div {

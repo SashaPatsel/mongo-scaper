@@ -79,12 +79,28 @@ $(document).on("click", ".view-comments", function() {
         //This is probably the comment's id, not the article's
         console.log(data)
           if (thisId == data.comments._id) {
-            $(".comment-sec").text(data.comments.comment[i].text)
+            $(".comment-sec").html("<p>"+data.comments.comment[i].text+"<span data-id='" + data.comments.comment[i]._id + "' class='glyphicon glyphicon-remove' aria-hidden='true'></span></p>")
           }
       }
 
       // console.log(data.comment.text);
       
+    });
+});
+
+
+$(document).on("click", ".glyphicon",  function() {
+  var thisId = $(this).data("id");
+
+  // Now make an ajax call for the Article
+  $.ajax({
+    method: "POST",
+    url: "/deletecomments/" + thisId
+  })
+    // With that done, add the note information to the page
+    .then(function(data) {
+
+
     });
 });
 
